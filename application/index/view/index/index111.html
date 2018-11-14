@@ -1,0 +1,15 @@
+{extend name="index/base" /}
+{block name="title"}
+{$title}
+{/block}
+{block name="right"}
+{/block}
+{block name="footer"}
+{__block__}@ThinkPHP 版权所有
+{/block}
+<script>
+    require(['foo'],function (ss) {
+        ss.run();
+    })
+</script>
+{/block}
