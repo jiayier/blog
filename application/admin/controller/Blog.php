@@ -19,9 +19,6 @@ class Blog
         if (empty($this->LogicModel)){
             $this->LogicModel = new ArticleLogic();
         }
-     //   header('Access-Control-Allow-Origin:*');
-        // 响应类型
-    //    header('Access-Control-Allow-Methods:POST,GET,PUT');
     }
     public function index(Request $request)
     {
@@ -32,6 +29,9 @@ class Blog
         return json( $this->LogicModel->getOne($id));
     }
     public function update(Request $request,$id){
+        return json(['id'=>$id,'update'=>$request->method(),'data'=>$request->param()]);
+    }
+    public function edit(Request $request,$id){
         return json(['id'=>$id,'re'=>$request->method(),'data'=>$request->param()]);
     }
     /**

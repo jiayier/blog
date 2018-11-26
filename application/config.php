@@ -77,6 +77,17 @@ return [
     // | URL设置
     // +----------------------------------------------------------------------
 
+    // auth配置
+    'auth'  => [
+        'auth_on'           => 1, // 权限开关
+        'auth_type'         => 1, // 认证方式，1为实时认证；2为登录认证。
+        'auth_group'        => 'dp_auth_group', // 用户组数据不带前缀表名
+        'auth_group_access' => 'dp_auth_group_access', // 用户-用户组关系不带前缀表
+        'auth_rule'         => 'dp_auth_rule', // 权限规则不带前缀表
+        'auth_user'         => 'member', // 用户信息不带前缀表
+    ],
+
+
     // PATHINFO变量名 用于兼容模式
     'var_pathinfo'           => 's',
     // 兼容PATH_INFO获取

@@ -17,7 +17,12 @@
     ],
     "require": {
         "php": ">=5.4.0",
-        "topthink/framework": "5.0.*"
+        "topthink/framework": "5.0.*",
+        "topthink/think-worker": "1.*",
+        "workerman/workerman-for-win": "^3.5",
+        "workerman/gateway-worker": "^3.0",
+        "5ini99/think-auth": "^1.0",
+        "topthink/think-captcha": "1.*"
     },
     "autoload": {
         "psr-4": {

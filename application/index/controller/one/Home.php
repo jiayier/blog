@@ -30,4 +30,9 @@ class Home extends Common
        // return $this->fetch('index/index');
       return $this->fetch('index');
     }
+
+
+
+
+
 }

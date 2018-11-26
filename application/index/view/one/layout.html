@@ -67,7 +67,9 @@
                     <!--<li><a class="page-scroll" href="{:url('index/one.home/index')}">主页</a></li>-->
                     <li><a {$url == url('index/one.home/index') ?'class="page-scroll active"':'class="page-scroll unactive"'}  href="{:url('index/one.home/index')}">主页</a></li>
                     <li><a {$url == url('index/one.technology/index') ?'class="page-scroll active"':'class="page-scroll unactive"'} href="{:url('index/one.technology/index')}">技术流</a></li>
-                    <!--<li><a class="page-scroll" href="#service">Service</a></li>-->
+                    <li><a {$url == url('index/one.websock/websock') ?'class="page-scroll active"':'class="page-scroll unactive"'} href="{:url('index/one.websock/websock')}">websock</a></li>
+                    <li><a {$url == url('index/one.websock/test') ?'class="page-scroll active"':'class="page-scroll unactive"'} href="{:url('index/one.websock/test')}">test</a></li>
+                    <li><a {$url == url('index/one.home/test') ?'class="page-scroll active"':'class="page-scroll unactive"'} href="{:url('index/one.websock/home')}">home</a></li>
                     <!--<li><a class="page-scroll" href="#portfolio">works</a></li>-->
                     <!--<li><a class="page-scroll" href="#team">Team</a></li>-->
                     <!--<li><a class="page-scroll" href="#pricing">Pricing</a></li>-->
