@@ -11,6 +11,7 @@ namespace app\index\controller\one;
 use app\common\model\Post;
 
 use think\Controller;
+use think\Exception;
 use think\Request;
 use app\index\logicModel\WebsockLogic;
 use think\Loader;
@@ -78,21 +79,51 @@ class Websock extends Controller
         ];
         $validate = Loader::validate('User');
         if(!$validate->check($data)){
-            dump($validate->getError());
+         //   dump($validate->getError());
         }
              $websorck = new WebsockLogic();
            //  dump($websorck->eat());
         $result = $this->validate($data,'User');
         if(true !== $result){
             // 验证失败 输出错误信息
-            dump($result);
+         //   dump($result);
         }
 
         return $this->fetch('index/index');
 
     }
 
+    private function put_csv($list, $title, $field, $fileName)
+    {
+        $file_name = $fileName . date("mdHis", time()) . ".csv";
+        header('Content-Type: application/vnd.ms-excel');
+        header('Content-Disposition: attachment;filename=' . $file_name);
+        header('Cache-Control: max-age=0');
+        $file = fopen('php://output', "a");
+        $limit = 1000;
+        $calc = 0;
+        foreach ($title as $v) {
+            $tit[] = iconv('UTF-8', 'GB2312//IGNORE',$v);
+        }
+        fputcsv($file, $tit);
+        foreach ($list as $v) {
+            $calc++;
+            if ($limit == $calc) {
+                ob_flush();
+                flush();
+                $calc = 0;
+            }
 
+            foreach ($field as $t) {
+                $tarr[] = iconv('UTF-8', 'GB2312//IGNORE', $v[$t]);
+            }
+            fputcsv($file, $tarr);
+            unset($tarr);
+        }
+        unset($list);
+        fclose($file);
+        exit();
+    }
     protected function first()
     {
         echo 'first<br/>';
