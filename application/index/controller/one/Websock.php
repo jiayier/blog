@@ -16,9 +16,8 @@ use think\Request;
 use app\index\logicModel\WebsockLogic;
 use think\Loader;
 use think\Db;
-
 use app\common\model\Auther;
-class Websock extends Controller
+class Websock extends Common
 {
 
     protected $beforeActionList = [
@@ -58,12 +57,12 @@ class Websock extends Controller
         return json(['ss'=>json_decode($request->param('__input'))[0]]);
     }
 
-    public function home()
+    public function home(Request $request)
     {
 
         $auth = Auther::instance();
        $re =  $auth->getGroups(1);
-       dump(  $re);
+  //     dump(  $re);
         // 检测权限
         if($auth->check('show_button',1)){// 第一个参数是规则名称,第二个参数是用户UID
             //有显示操作按钮的权限
@@ -88,8 +87,8 @@ class Websock extends Controller
             // 验证失败 输出错误信息
          //   dump($result);
         }
-
-        return $this->fetch('index/index');
+       $this->LogModel->write(['asdfasdf'=>$request->param()]);
+       return $this->fetch('index/index');
 
     }
 

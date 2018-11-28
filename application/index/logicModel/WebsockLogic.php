@@ -15,7 +15,7 @@ use think\Model;
 
 class WebsockLogic extends Model
 {
- use Dog;
+    use Dog;
 
     public function test()
     {
